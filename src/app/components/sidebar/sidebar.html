@@ -1,6 +1,12 @@
 <aside class="sidebar" [class.closed]="!isOpen">
-    <div class="toggle-btn" (click)="toggleSidebar()">
-        {{ isOpen ? '✕ FECHAR' : '☰ MENU' }}
+    <div class="sidebar-header">
+        <div class="avatar-small" *ngIf="!isOpen">
+            <img src="https://avatars.githubusercontent.com/u/67032746?s=400&u=530212862ad7cd8164fe6b6f872f2007f3cb1fbb&v=4"
+                alt="Foto de Ivan">
+        </div>
+        <div class="toggle-btn" (click)="toggleSidebar()">
+            {{ isOpen ? '✕ FECHAR' : '☰ MENU' }}
+        </div>
     </div>
 
     <div class="profile" *ngIf="isOpen">
@@ -14,6 +20,7 @@
 
     <nav class="menu" *ngIf="isOpen">
         <button (click)="scrollTo('hero')"> > TERMINAL</button>
+        <button (click)="scrollTo('about')"> > RESUMO</button>
         <button (click)="scrollTo('experience')"> > EXPERIENCIA</button>
         <button (click)="scrollTo('skills')"> > SKILLS</button>
         <button (click)="scrollTo('projects')"> > PROJETOS</button>

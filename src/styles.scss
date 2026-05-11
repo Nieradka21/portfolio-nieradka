@@ -1,13 +1,10 @@
 @use '@angular/material' as mat;
 
-/* Variável de animação (Adicionada para evitar que o var() fique vazio) */
 :root {
   --transition-speed: 0.3s;
 }
 
-/* =========================================
-   PALETA DARK MODE (Padrão)
-   ========================================= */
+/* PALETA DARK MODE */
 .dark-theme,
 :root {
   --bg-primary: #0d1117;
@@ -21,35 +18,27 @@
   --sidebar-bg: rgba(13, 17, 23, 0.95);
 }
 
-/* =========================================
-   PALETA LIGHT MODE
-   ========================================= */
+/* PALETA LIGHT MODE */
 .light-theme {
   --bg-primary: #f5f7fa;
   --bg-secondary: #ffffff;
   --bg-card: rgba(255, 255, 255, 0.9);
   --border-color: #d0d7de;
   --text-primary: #1f2328;
-  /* Texto escuro para dar contraste no fundo branco */
   --text-secondary: #444c56;
   --text-muted: #656d76;
   --accent: #00549f;
-  /* Azul Institucional TOTVS para destacar no tema claro */
   --sidebar-bg: rgba(255, 255, 255, 0.95);
 }
 
-/* =========================================
-   ESTILOS GLOBAIS
-   ========================================= */
 body,
 html {
   margin: 0;
-  height: 100%;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
-  font-family: Inter, Arial, sans-serif;
-}
-
-body {
+  font-family: 'Inter', Arial, sans-serif;
   background: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color var(--transition-speed), color var(--transition-speed);
@@ -59,16 +48,28 @@ body {
   box-sizing: border-box;
 }
 
-/* Remove a linha azul de foco dos botões no Chrome */
-button:focus {
-  outline: none;
+.section-title {
+  color: var(--accent);
+  font-family: 'Courier New', monospace;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 }
 
-/* =========================================
-   SCROLLBAR CUSTOMIZADA
-   ========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+section,
+app-hero {
+  scroll-margin-top: 100px;
+}
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -77,26 +78,5 @@ button:focus {
 
 ::-webkit-scrollbar-thumb {
   background: var(--accent);
-  border-radius: 20px;
-}
-
-/* =========================================
-   CLASSES GLOBAIS DE TIPOGRAFIA
-   ========================================= */
-.section-title {
-  color: var(--accent);
-  font-family: 'Courier New', monospace;
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Garante que o scroll é suave em toda a página */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Dá o respiro exato no topo quando o menu clica nas secções */
-section,
-app-hero {
-  scroll-margin-top: 100px;
+  border-radius: 10px;
 }
