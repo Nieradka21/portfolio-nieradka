@@ -10,5 +10,5 @@ export interface Experience {
 export interface Skill {
     name: string;
     level: number;
-    category: 'Backend' | 'Frontend' | 'Data' | 'ERP';
+    category: 'Backend' | 'Frontend' | 'Data' | 'ERP' | 'Reports' | 'Infra' | 'Support';
 }

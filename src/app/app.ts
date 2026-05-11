@@ -71,11 +71,29 @@ export class AppComponent {
     }
   ];
 
-  skills: Skill[] = [
-    { name: 'ADVPL / TLPP', level: 95, category: 'ERP' },
-    { name: 'TOTVS Protheus (Arquitetura/MVC)', level: 90, category: 'ERP' },
-    { name: 'SQL Server (T-SQL / Tuning)', level: 90, category: 'Data' },
-    { name: 'Integrações (REST / APIs)', level: 85, category: 'Backend' },
-    { name: 'Dicionário de Dados (SX)', level: 95, category: 'ERP' }
-  ];
+    skills: Skill[] = [
+      { name: 'ADVPL / TLPP', level: 95, category: 'ERP' },
+      { name: 'TOTVS Protheus (Arquitetura/MVC)', level: 90, category: 'ERP' },
+      { name: 'Dicionário de Dados (SX)', level: 95, category: 'ERP' },
+      { name: 'Pontos de Entrada (PE)', level: 95, category: 'ERP' },
+      { name: 'Customizações MVC', level: 90, category: 'ERP' },
+      { name: 'SIGACFG / Configurador', level: 90, category: 'ERP' },
+      { name: 'MsExecAuto / Automação', level: 85, category: 'ERP' },
+      { name: 'Schedule / Jobs Protheus', level: 85, category: 'ERP' },
+      { name: 'Controle de Fontes (RPO)', level: 80, category: 'ERP' },
+
+      { name: 'SQL Server (T-SQL / Tuning)', level: 90, category: 'Data' },
+      { name: 'Embedded SQL / Querys Avançadas', level: 90, category: 'Data' },
+      { name: 'DBAccess / TopConnect', level: 80, category: 'Data' },
+
+      { name: 'Integrações REST / APIs', level: 95, category: 'Backend' },
+
+      { name: 'SmartView', level: 95, category: 'Reports' },
+      { name: 'Relatórios Excel (FWMSExcelXLSX)', level: 90, category: 'Reports' },
+
+      { name: 'AppServer / SmartClient', level: 85, category: 'Infra' },
+      { name: 'Monitor / Performance Protheus', level: 80, category: 'Infra' },
+
+      { name: 'Logs / Troubleshooting', level: 90, category: 'Support' }
+    ];
 }
