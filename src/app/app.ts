@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { inject as injectAnalytics } from '@vercel/analytics';
 import { Experience, Skill } from './models/portfolio.model';
 import { ThemeService } from './services/theme.service';
 import { HeaderComponent } from './components/header/header';
@@ -24,8 +25,15 @@ import { ProjectsCardsComponent } from './components/projects-cards/projects-car
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   themeService = inject(ThemeService);
+
+  ngOnInit() {
+    // Initialize Vercel Web Analytics
+    injectAnalytics({
+      mode: 'production'
+    });
+  }
 
   name = 'Ivan Mateus Nieradka';
   role = 'Analista Programador Protheus Pleno';
