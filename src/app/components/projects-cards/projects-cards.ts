@@ -11,28 +11,40 @@ import { CommonModule } from '@angular/common';
 export class ProjectsCardsComponent {
   projects = [
     {
-      title: 'Integração Nativa (REST)',
-      description: 'Desenvolvimento de WebServices consumindo e expondo dados no Protheus para comunicação assíncrona com sistemas de e-commerce e portais de terceiros.'
+      title: 'Integrações REST Protheus',
+      description: 'Implementação de APIs REST nativas para integração entre Protheus, e-commerce e sistemas terceiros, realizando consumo e exposição de dados de forma segura e assíncrona.'
     },
     {
-      title: 'Aplicações em PO-UI',
-      description: 'Desenvolvimento de portais e telas modernas utilizando o framework PO-UI (Angular), consumindo APIs REST do Protheus para entregar interfaces mais fluidas e responsivas.'
+      title: 'Portais Corporativos com PO-UI',
+      description: 'Criação de portais e interfaces modernas utilizando Angular + PO-UI, consumindo APIs REST do Protheus para processos internos e operações comerciais.'
     },
     {
-      title: 'Sistema de Bipagem (Angular / ERP)',
-      description: 'Desenvolvimento de aplicação de bipagem (picking) para e-commerce utilizando Angular. A comunicação em tempo real com o Protheus foi arquitetada utilizando APIs REST e integração nativa via JsToAdvpl.'
+      title: 'Sistema de Bipagem para E-commerce',
+      description: 'Aplicação de picking e conferência desenvolvida em Angular, integrada ao Protheus via REST e JsToAdvpl para comunicação em tempo real com o ERP.'
     },
     {
-      title: 'Automação Massiva (T-SQL)',
-      description: 'Implementação de procedures no SQL Server para o fechamento e recálculo de custo médio de itens, transferindo o processamento pesado do AppServer diretamente para o banco.'
+      title: 'Otimização de Processos via T-SQL',
+      description: 'Automação de rotinas críticas utilizando procedures SQL Server para fechamento e recálculo de custo médio, reduzindo carga de processamento no AppServer.'
     },
     {
-      title: 'Interfaces e Importação de Dados',
-      description: 'Desenvolvimento de rotinas estruturadas (MsExecAuto) para leitura, validação e importação massiva de dados, garantindo a integridade das informações na base do ERP.'
+      title: 'Importação Massiva com MsExecAuto',
+      description: 'Implementação de rotinas automatizadas para leitura, validação e importação massiva de dados, garantindo integridade e rastreabilidade das informações.'
     },
     {
-      title: 'Customizações Core (MVC)',
-      description: 'Criação de telas complexas em MVC, relatórios customizados, manipulação de Dicionários de Dados (SX) e desenvolvimento de gatilhos (Triggers/Pontos de Entrada) para regras de negócio.'
+      title: 'Customizações MVC no Protheus',
+      description: 'Criação de telas MVC, pontos de entrada, gatilhos de negócio, relatórios personalizados e manipulação avançada de Dicionário de Dados (SX).'
+    },
+    {
+      title: 'Relatórios Corporativos e SmartView',
+      description: 'Desenvolvimento de relatórios analíticos utilizando SmartView e geração de planilhas Excel via FWMSExcelXLSX para apoio operacional e gerencial.'
+    },
+    {
+      title: 'Monitoramento e Troubleshooting',
+      description: 'Análise de logs, troubleshooting de ambiente Protheus, identificação de gargalos de performance e suporte técnico em rotinas críticas.'
+    },
+    {
+      title: 'Monitoramento Protheus e Alertas Automatizados',
+      description: 'Desenvolvimento de solução em Python para monitoramento de serviços, consumo de recursos e integridade de ambientes Protheus, com envio automatizado de alertas e indicadores via Microsoft Teams.'
     }
   ];
 }
