@@ -1,10 +1,7 @@
-$dark-bg: #0d1117;
 $sidebar-width: 260px;
-$totvs-blue: #00549f;
 
 .app-container {
     display: flex;
-    background-color: $dark-bg;
     min-height: 100vh;
 }
 
@@ -12,31 +9,86 @@ $totvs-blue: #00549f;
     flex: 1;
     margin-left: $sidebar-width;
     padding: 3rem;
-    max-width: 1100px;
+    max-width: 1200px;
+    transition: margin-left 0.3s ease;
+    position: relative;
 
     @media (max-width: 768px) {
         margin-left: 0;
         padding: 1.5rem;
-        padding-top: 80px; // Espaço para a sidebar fixa no topo
+        padding-top: 80px;
+    }
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: inherit;
+    z-index: 10;
+    transition: 0.3s;
+
+    &:hover {
+        border-color: var(--accent);
+        background: var(--bg-card);
+    }
+
+    @media (max-width: 768px) {
+        top: 15px;
     }
 }
 
 .section-card {
-    background: #161b22;
-    border: 1px solid #30363d;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 20px;
     margin-bottom: 3rem;
+    transition: 0.3s;
 
-    h2 {
-        color: #58a6ff;
-        font-family: 'Courier New', monospace;
-        margin-top: 0;
+    &:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
     }
 
     p {
-        line-height: 1.6;
-        color: #c9d1d9;
+        line-height: 1.8;
+        color: var(--text-secondary);
+    }
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 16px;
+    transition: 0.3s;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent);
+    }
+
+    h3 {
+        color: var(--accent);
+    }
+
+    p {
+        color: var(--text-secondary);
     }
 }
 
@@ -44,7 +96,23 @@ $totvs-blue: #00549f;
     margin-top: 4rem;
     padding: 20px;
     text-align: center;
-    border-top: 1px solid #30363d;
+    border-top: 1px solid var(--border-color);
     font-family: monospace;
-    color: #8b949e;
+    color: var(--text-muted);
+}
+
+.fade-in {
+    animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

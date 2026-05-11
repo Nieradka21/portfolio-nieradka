@@ -2,26 +2,44 @@
   <app-sidebar [name]="name"></app-sidebar>
 
   <main class="main-content">
-    <app-hero [title]="role"></app-hero>
 
-    <section id="about" class="section-card">
-      <h2>[RESUMO_SISTEMA]</h2>
+    <app-header [name]="name"></app-header>
+
+    <app-hero id="hero" [title]="role"></app-hero>
+
+    <section id="about" class="section-card fade-in">
+      <h2 class="section-title">[RESUMO_PROFISSIONAL]</h2>
+
       <p>
-        Especialista no ecossistema TOTVS Protheus, com sólida experiência em Transact-SQL e integrações.
-        Foco em automação de processos e inteligência de dados para suporte à decisão.
+        Como Analista Programador Pleno, atuo diretamente no desenvolvimento, sustentação e evolução do ERP TOTVS
+        Protheus.
+        Minha rotina envolve entender as dores das áreas de negócio e traduzi-las em soluções técnicas eficientes,
+        participando de todo o ciclo: desde o levantamento de requisitos até a codificação em ADVPL/TLPP e entrega
+        final.
+      </p>
+
+      <p>
+        Além da customização do ERP (MVC, Pontos de Entrada e Dicionário de Dados), tenho forte atuação em Banco de
+        Dados (SQL Server). Desenvolvo automações massivas via T-SQL, atuo no tuning de performance e implemento
+        integrações
+        via WebServices (REST/SOAP), garantindo que a operação flua com estabilidade e segurança.
       </p>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="fade-in">
       <app-experience-timeline [data]="experiences"></app-experience-timeline>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="fade-in">
       <app-skills-grid [skills]="skills"></app-skills-grid>
     </section>
 
+    <section id="projects" class="fade-in">
+      <app-projects-cards></app-projects-cards>
+    </section>
+
     <footer class="footer-console">
-      <p>> Ivan_Nieradka_Portfolio.prw | Compilado em Angular 13+ | v2.0.26</p>
+      <p>> portfolio_ivan_nieradka.prw | Compilado com Sucesso | TOTVS Developer</p>
     </footer>
   </main>
 </div>

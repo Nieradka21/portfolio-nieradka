@@ -1,0 +1,40 @@
+.section-title {
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 2rem;
+}
+
+.project-grid {
+    display: grid;
+    /* Cria colunas automáticas com no mínimo 280px de largura */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    /* ISSO AQUI RESOLVE O ESPAÇO ENTRE OS CARDS (o "justo") */
+}
+
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    /* ISSO RESOLVE O ESPAÇO INTERNO DO CARD */
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+    }
+
+    h3 {
+        color: var(--accent);
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin: 0;
+    }
+}

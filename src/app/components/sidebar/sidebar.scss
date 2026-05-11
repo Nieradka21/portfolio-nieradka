@@ -1,31 +1,46 @@
 .sidebar {
     width: 260px;
     height: 100vh;
-    background: #161b22;
-    border-right: 1px solid #30363d;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
     position: fixed;
-    transition: width 0.3s ease;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     z-index: 100;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 
     &.closed {
-        width: 50px;
+        width: 60px;
 
         .profile,
         .menu,
         .status-bar {
             display: none;
         }
+
+        .toggle-btn {
+            text-align: center;
+            font-size: 1.2rem;
+            writing-mode: vertical-rl;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
     }
 }
 
 .toggle-btn {
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     text-align: right;
-    color: #58a6ff;
+    color: var(--accent);
     font-family: monospace;
+    font-weight: bold;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .profile {
@@ -35,26 +50,31 @@
     .avatar-placeholder {
         width: 80px;
         height: 80px;
-        background: #00549f;
+        background: var(--accent);
+        color: white;
         border-radius: 50%;
         margin: 0 auto 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: bold;
+        font-size: 1.5rem;
     }
 
     h3 {
-        font-size: 1rem;
-        color: #fff;
+        font-size: 1.1rem;
+        color: var(--text-primary);
         margin: 0;
     }
 
     .badge {
-        background: #00549f;
+        background: var(--accent);
+        color: white;
         font-size: 0.7rem;
-        padding: 2px 8px;
+        padding: 3px 8px;
         border-radius: 4px;
+        margin-top: 5px;
+        display: inline-block;
     }
 }
 
@@ -62,18 +82,21 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 10px;
+    gap: 15px;
 
     button {
         background: transparent;
         border: none;
-        color: #8b949e;
+        color: var(--text-secondary);
         text-align: left;
         cursor: pointer;
         font-family: 'Courier New', Courier, monospace;
+        font-size: 0.95rem;
+        transition: 0.2s;
 
         &:hover {
-            color: #58a6ff;
+            color: var(--accent);
+            transform: translateX(5px);
         }
     }
 }
@@ -81,22 +104,105 @@
 .status-bar {
     margin-top: auto;
     padding: 20px;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: #3fb950;
     font-family: monospace;
+    border-top: 1px solid var(--border-color);
 }
 
-// Responsividade: Esconde no mobile ou vira topo
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
         border-right: none;
-        border-bottom: 1px solid #30363d;
+        border-bottom: 1px solid var(--border-color);
+
+        &.closed {
+            width: 100%;
+            height: 50px;
+            overflow: hidden;
+
+            .toggle-btn {
+                writing-mode: horizontal-tb;
+                text-align: left;
+                padding: 15px;
+            }
+        }
     }
 
-    .sidebar.closed {
-        width: 100%;
+    .toggle-btn {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+
+        .avatar-placeholder {
+            margin: 0;
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+/* ... resto do seu código no topo ... */
+
+.profile {
+    text-align: center;
+    padding: 20px;
+
+    /* NOVA CLASSE PARA A IMAGEM */
+    .avatar-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        /* Garante que a foto não fica esticada */
+        margin: 0 auto 10px;
+        display: block;
+        border: 2px solid var(--accent);
+        /* Dá uma borda com a cor do tema para destacar */
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        margin: 0;
+    }
+
+    .badge {
+        background: var(--accent);
+        color: white;
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+        margin-top: 5px;
+        display: inline-block;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    .profile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+
+        /* AJUSTE TAMBÉM NO MOBILE */
+        .avatar-img {
+            margin: 0;
+            width: 50px;
+            height: 50px;
+        }
     }
 }

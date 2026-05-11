@@ -1,1 +1,21 @@
-<p>header works!</p>
+<header class="main-header">
+    <div class="logo">
+        <span class="code-icon">&lt;/&gt;</span>
+        <h1>{{ name }}</h1>
+    </div>
+
+    <div class="header-actions">
+        <nav>
+            <a href="https://github.com/Nieradka21" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/ivanndk" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+
+        <button class="theme-toggle" (click)="themeService.toggleTheme()" title="Trocar Tema">
+            @if (themeService.currentTheme() === 'dark') {
+            ☀️
+            } @else {
+            🌙
+            }
+        </button>
+    </div>
+</header>

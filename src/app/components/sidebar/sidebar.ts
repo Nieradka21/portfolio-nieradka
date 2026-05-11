@@ -16,7 +16,17 @@ export class SidebarComponent {
     this.isOpen = !this.isOpen;
   }
 
-  scrollTo(section: string) {
-    document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+  scrollTo(sectionId: string) {
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      // Rola exatamente para o início do bloco com animação suave
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // UX Bónus: Se estiver num ecrã mobile (menor que 768px), fecha o menu após o clique
+      if (window.innerWidth <= 768) {
+        this.isOpen = false;
+      }
+    }
   }
 }

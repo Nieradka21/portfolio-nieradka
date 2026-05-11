@@ -1,39 +1,102 @@
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
+/* Variável de animação (Adicionada para evitar que o var() fique vazio) */
+:root {
+  --transition-speed: 0.3s;
+}
+
+/* =========================================
+   PALETA DARK MODE (Padrão)
+   ========================================= */
+.dark-theme,
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: rgba(22, 27, 34, 0.85);
+  --border-color: #30363d;
+  --text-primary: #f0f6fc;
+  --text-secondary: #c9d1d9;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --sidebar-bg: rgba(13, 17, 23, 0.95);
+}
+
+/* =========================================
+   PALETA LIGHT MODE
+   ========================================= */
+.light-theme {
+  --bg-primary: #f5f7fa;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --border-color: #d0d7de;
+  --text-primary: #1f2328;
+  /* Texto escuro para dar contraste no fundo branco */
+  --text-secondary: #444c56;
+  --text-muted: #656d76;
+  --accent: #00549f;
+  /* Azul Institucional TOTVS para destacar no tema claro */
+  --sidebar-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* =========================================
+   ESTILOS GLOBAIS
+   ========================================= */
+body,
 html {
+  margin: 0;
   height: 100%;
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    )
-  );
+  overflow-x: hidden;
+  font-family: Inter, Arial, sans-serif;
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
-  margin: 0;
-  height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
-/* You can add global styles to this file, and also import other style files */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Remove a linha azul de foco dos botões no Chrome */
+button:focus {
+  outline: none;
+}
+
+/* =========================================
+   SCROLLBAR CUSTOMIZADA
+   ========================================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 20px;
+}
+
+/* =========================================
+   CLASSES GLOBAIS DE TIPOGRAFIA
+   ========================================= */
+.section-title {
+  color: var(--accent);
+  font-family: 'Courier New', monospace;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Garante que o scroll é suave em toda a página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dá o respiro exato no topo quando o menu clica nas secções */
+section,
+app-hero {
+  scroll-margin-top: 100px;
+}

@@ -1,0 +1,58 @@
+.section-title {
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 2rem;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.2s, background-color 0.3s, border-color 0.3s;
+
+    &:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+    }
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+.category-badge {
+    font-size: 0.75rem;
+    background: var(--bg-secondary);
+    color: var(--accent);
+    border: 1px solid var(--border-color);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-family: monospace;
+}

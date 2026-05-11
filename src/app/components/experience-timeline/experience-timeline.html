@@ -1,1 +1,18 @@
-<p>experience-timeline works!</p>
+<h3 class="section-title">[LOG_EXPERIENCIA]</h3>
+
+<div class="timeline">
+    <div *ngFor="let exp of data" class="card">
+
+        <div class="header">
+            <h4>{{ exp.role }}</h4>
+            <span class="period">{{ exp.period }}</span>
+        </div>
+
+        <p class="company">{{ exp.company }} - {{ exp.location }}</p>
+
+        <ul>
+            <li *ngFor="let desc of exp.description">{{ desc }}</li>
+        </ul>
+
+    </div>
+</div>
