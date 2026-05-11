@@ -1,0 +1,23 @@
+<aside class="sidebar" [class.closed]="!isOpen">
+    <div class="toggle-btn" (click)="toggleSidebar()">
+        {{ isOpen ? '«' : '»' }}
+    </div>
+
+    <div class="profile" *ngIf="isOpen">
+        <div class="avatar-placeholder">IM</div>
+        <h3>{{ name }}</h3>
+        <span class="badge">PLENO</span>
+    </div>
+
+    <nav class="menu" *ngIf="isOpen">
+        <button (click)="scrollTo('hero')"> > TERMINAL</button>
+        <button (click)="scrollTo('experience')"> > EXPERIENCIA</button>
+        <button (click)="scrollTo('skills')"> > SKILLS</button>
+        <button (click)="scrollTo('projects')"> > PROJETOS</button>
+    </nav>
+
+    <div class="status-bar" *ngIf="isOpen">
+        <p>DB: SQL_SERVER_OK</p>
+        <p>ERP: PROTHEUS_ON</p>
+    </div>
+</aside>
