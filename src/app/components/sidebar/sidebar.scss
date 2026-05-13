@@ -1,8 +1,11 @@
+/* src/app/components/sidebar/sidebar.scss */
+
 :host {
     display: block;
     width: 260px;
     height: 100vh;
-    transition: width 0.3s ease;
+    // Transição sincronizada com o container interno
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
 
     @media (max-width: 768px) {
@@ -24,50 +27,103 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
-    -webkit-backdrop-filter: blur(10px);
+    // Curva de aceleração profissional para remover a sensação de "travado"
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
     overflow: hidden;
+    will-change: width; // Otimização para GPU
 
+    // --- ESTADO MINIMIZADO (DESKTOP) ---
     &.closed {
-        width: 60px;
+        width: 65px;
 
-        @media (max-width: 768px) {
-            width: 100% !important;
-            height: 60px;
+        .sidebar-header {
+            flex-direction: column; // Foto em cima, Botão embaixo
+            padding: 20px 0;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-small {
+            display: flex;
+
+            img {
+                width: 38px;
+                height: 38px;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+
+        .toggle-btn {
+            text-align: center;
+            width: 100%;
+            padding: 5px 0;
+            font-size: 0.75rem;
+            writing-mode: horizontal-tb;
+            transform: none;
+            opacity: 0.8;
+            display: block;
+        }
+
+        // Esconde info detalhada com fade out suave
+        .profile,
+        .menu,
+        .status-bar {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            display: none;
         }
     }
 
+    // --- RESPONSIVIDADE MOBILE ---
     @media (max-width: 768px) {
         width: 100% !important;
         height: auto;
         max-height: 100vh;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
-    }
-}
 
-.toggle-btn {
-    padding: 15px 25px;
-    cursor: pointer;
-    text-align: right;
-    color: var(--accent);
-    font-family: monospace;
-    font-weight: bold;
-    -webkit-user-select: none;
-    user-select: none;
+        &.closed {
+            height: 60px;
+
+            .sidebar-header {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 20px;
+                height: 60px;
+                gap: 0;
+            }
+
+            .avatar-small {
+                display: flex;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+
+            .toggle-btn {
+                width: auto;
+                font-size: 0.85rem;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                border: none;
+            }
+        }
+    }
 }
 
 .sidebar-header {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
-    gap: 10px;
-
-    @media (max-width: 768px) {
-        justify-content: space-between;
-        width: 100%;
-    }
+    padding: 15px 25px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .avatar-small {
@@ -76,47 +132,67 @@
     cursor: pointer;
     transition: transform 0.2s ease;
 
+    img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border: 2px solid var(--accent);
+        object-fit: cover;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
     @media (max-width: 768px) {
         display: flex;
-        align-items: center;
-        justify-content: center;
+    }
+}
 
-        img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            border: 2px solid var(--accent);
-        }
+.toggle-btn {
+    cursor: pointer;
+    color: var(--accent);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    transition: 0.3s ease;
+    background: transparent;
+    border: none;
+    user-select: none;
 
-        &:hover {
-            transform: scale(1.1);
-        }
+    &:hover {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.05);
     }
 }
 
 .profile {
     text-align: center;
     padding: 20px;
+    animation: fadeIn 0.4s ease;
 
     .avatar-img {
         width: 100px;
         height: 100px;
         border-radius: 50%;
-        border: 2px solid var(--accent);
+        border: 3px solid var(--accent);
         margin-bottom: 15px;
+        object-fit: cover;
     }
 
     h3 {
         margin: 0;
         font-size: 1.1rem;
+        color: var(--text-primary);
     }
 
     .badge {
+        display: inline-block;
         background: var(--accent);
         color: #fff;
         font-size: 0.7rem;
         padding: 2px 8px;
         border-radius: 4px;
+        margin-top: 5px;
     }
 }
 
@@ -124,20 +200,27 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 15px;
+    gap: 12px;
+    animation: fadeIn 0.5s ease;
 
     button {
         background: transparent;
-        border: none;
+        border: 1px solid transparent;
         color: var(--text-secondary);
         text-align: left;
         font-family: monospace;
         cursor: pointer;
-        font-size: 0.9rem;
+        // Aumentado para 1.1rem para melhor legibilidade
+        font-size: 1.0rem;
+        padding: 12px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
 
         &:hover {
             color: var(--accent);
-            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--accent);
+            padding-left: 20px;
         }
     }
 }
@@ -149,4 +232,16 @@
     font-family: monospace;
     color: #3fb950;
     border-top: 1px solid var(--border-color);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

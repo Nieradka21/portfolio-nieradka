@@ -1,5 +1,5 @@
-<div class="app-container">
-  <app-sidebar [name]="name"></app-sidebar>
+<div class="app-container" [class.sidebar-closed]="!sidebar.isOpen">
+  <app-sidebar #sidebar [name]="name"></app-sidebar>
 
   <main class="main-content">
     <app-header [name]="name"></app-header>

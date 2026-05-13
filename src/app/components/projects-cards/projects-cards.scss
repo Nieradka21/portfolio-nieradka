@@ -1,16 +1,26 @@
+/* src/app/components/projects-cards/projects-cards.scss */
+
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // O minmax(280px, 1fr) garante que o card se ajuste melhor em telas pequenas antes de quebrar
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 
     @media (max-width: 480px) {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
 .section-title {
+
+    // Mantendo a lógica de alinhamento para mobile conforme as seções anteriores
     @media (max-width: 768px) {
-        text-align: center;
+        text-align: left;
+        margin-left: 5px;
+        font-size: 1.2rem;
     }
 }
 
@@ -19,9 +29,14 @@
     border: 1px solid var(--border-color);
     padding: 2rem;
     border-radius: 16px;
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+
+    // MELHORIA DE FLUIDEZ:
+    // Usando a mesma curva de animação da sidebar para evitar a sensação de "travado"
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 
     &:hover {
         transform: translateY(-8px);
@@ -33,12 +48,25 @@
         color: var(--accent);
         margin: 0 0 1rem 0;
         font-size: 1.25rem;
+        font-family: 'Courier New', monospace; // Estética terminal
     }
 
     p {
+        text-align: justify;
         color: var(--text-secondary);
         line-height: 1.6;
         margin: 0;
         font-size: 0.95rem;
+
+        // AJUSTE SOLICITADO: Texto Justificado
+        text-align: justify;
+
+        // Melhora a quebra de palavras técnicas (como ADVPL/TLPP) no modo justificado
+        overflow-wrap: break-word;
+        hyphens: auto;
+
+        @media (max-width: 768px) {
+            font-size: 0.9rem;
+        }
     }
 }
