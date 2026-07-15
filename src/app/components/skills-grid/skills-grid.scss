@@ -42,8 +42,39 @@
 
 .progress-fill {
     height: 100%;
-    background: var(--accent);
     transition: width 1.5s cubic-bezier(0.1, 0, 0.2, 1);
+
+    &.level-avancado {
+        width: 100%;
+        background: var(--accent);
+    }
+
+    &.level-intermediario {
+        width: 65%;
+        background: #d9a441;
+    }
+
+    &.level-basico {
+        width: 30%;
+        background: var(--text-secondary, #888);
+    }
+}
+
+.level-tag {
+    font-size: 0.75rem;
+    font-family: monospace;
+
+    &.level-avancado {
+        color: var(--accent);
+    }
+
+    &.level-intermediario {
+        color: #d9a441;
+    }
+
+    &.level-basico {
+        color: var(--text-secondary, #888);
+    }
 }
 
 .category-badge {

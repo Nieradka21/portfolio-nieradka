@@ -7,8 +7,10 @@ export interface Experience {
     tech: string[];
 }
 
+export type SkillLevel = 'Avançado' | 'Intermediário' | 'Básico';
+
 export interface Skill {
     name: string;
-    level: number;
+    level: SkillLevel;
     category: 'Backend' | 'Frontend' | 'Data' | 'ERP' | 'Reports' | 'Infra' | 'Support';
 }
