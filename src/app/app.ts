@@ -72,28 +72,28 @@ export class AppComponent {
   ];
 
     skills: Skill[] = [
-      { name: 'ADVPL / TLPP', level: 95, category: 'ERP' },
-      { name: 'TOTVS Protheus (Arquitetura/MVC)', level: 90, category: 'ERP' },
-      { name: 'Dicionário de Dados (SX)', level: 95, category: 'ERP' },
-      { name: 'Pontos de Entrada (PE)', level: 95, category: 'ERP' },
-      { name: 'Customizações MVC', level: 90, category: 'ERP' },
-      { name: 'SIGACFG / Configurador', level: 90, category: 'ERP' },
-      { name: 'MsExecAuto / Automação', level: 85, category: 'ERP' },
-      { name: 'Schedule / Jobs Protheus', level: 85, category: 'ERP' },
-      { name: 'Controle de Fontes (RPO)', level: 80, category: 'ERP' },
+      { name: 'ADVPL / TLPP', level: 'Avançado', category: 'ERP' },
+      { name: 'TOTVS Protheus (Arquitetura/MVC)', level: 'Intermediário', category: 'ERP' },
+      { name: 'Dicionário de Dados (SX)', level: 'Avançado', category: 'ERP' },
+      { name: 'Pontos de Entrada (PE)', level: 'Avançado', category: 'ERP' },
+      { name: 'SIGACFG / Configurador', level: 'Avançado', category: 'ERP' },
+      { name: 'MsExecAuto / Automação', level: 'Avançado', category: 'ERP' },
+      { name: 'Schedule / Jobs Protheus', level: 'Intermediário', category: 'ERP' },
+      { name: 'Controle de Fontes (RPO)', level: 'Intermediário', category: 'ERP' },
 
-      { name: 'SQL Server (T-SQL / Tuning)', level: 90, category: 'Data' },
-      { name: 'Embedded SQL / Querys Avançadas', level: 90, category: 'Data' },
-      { name: 'DBAccess / TopConnect', level: 80, category: 'Data' },
+      { name: 'SQL Server (T-SQL / Tuning)', level: 'Avançado', category: 'Data' },
+      { name: 'Embedded SQL / Querys Avançadas', level: 'Avançado', category: 'Data' },
+      { name: 'DBAccess / TopConnect', level: 'Intermediário', category: 'Data' },
 
-      { name: 'Integrações REST / APIs', level: 95, category: 'Backend' },
+      { name: 'Integrações REST / APIs', level: 'Avançado', category: 'Backend' },
+      { name: 'PO-UI', level: 'Básico', category: 'Frontend' },
 
-      { name: 'SmartView', level: 95, category: 'Reports' },
-      { name: 'Relatórios Excel (FWMSExcelXLSX)', level: 90, category: 'Reports' },
+      { name: 'SmartView', level: 'Avançado', category: 'Reports' },
+      { name: 'Relatórios Excel (FWMSExcelXLSX)', level: 'Avançado', category: 'Reports' },
 
-      { name: 'AppServer / SmartClient', level: 85, category: 'Infra' },
-      { name: 'Monitor / Performance Protheus', level: 80, category: 'Infra' },
+      { name: 'AppServer / SmartClient', level: 'Intermediário', category: 'Infra' },
+      { name: 'Monitor / Performance Protheus', level: 'Intermediário', category: 'Infra' },
 
-      { name: 'Logs / Troubleshooting', level: 90, category: 'Support' }
+      { name: 'Logs / Troubleshooting', level: 'Avançado', category: 'Support' }
     ];
 }
